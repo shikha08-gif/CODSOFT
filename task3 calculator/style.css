@@ -1,0 +1,125 @@
+body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: radial-gradient(circle at top left, #6dd5ed 0%, #2193b0 45%, #0f172a 100%);
+    font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    color: #f8fafc;
+}
+
+.calculator {
+    width: min(360px, calc(100vw - 32px));
+    padding: 28px;
+    border-radius: 28px;
+    background: rgba(15, 23, 42, 0.92);
+    box-shadow: 0 28px 80px rgba(15, 23, 42, 0.35);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(14px);
+}
+
+.calculator-header {
+    text-align: center;
+    margin-bottom: 18px;
+}
+
+.calculator-header h1 {
+    margin: 0;
+    font-size: 1.6rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.calculator-header p {
+    margin: 8px 0 0;
+    font-size: 0.95rem;
+    color: #94a3b8;
+}
+
+#display {
+    width: 100%;
+    height: 62px;
+    margin-bottom: 18px;
+    text-align: right;
+    font-size: 1.7rem;
+    padding: 18px 16px;
+    border: none;
+    border-radius: 18px;
+    background: rgba(15, 23, 42, 0.45);
+    color: #eef2ff;
+    box-shadow: inset 0 0 0 1px rgba(148, 163, 184, 0.12);
+}
+
+#display::placeholder {
+    color: rgba(226, 232, 240, 0.5);
+}
+
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 12px;
+}
+
+button {
+    min-height: 58px;
+    font-size: 1.05rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 18px;
+    cursor: pointer;
+    transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+    box-shadow: 0 10px 24px rgba(15, 23, 42, 0.16);
+}
+
+button:not(.operator):not(.equal):not(.control) {
+    background: linear-gradient(180deg, #1e293b 0%, #0f172a 100%);
+    color: #f8fafc;
+}
+
+button.operator {
+    background: linear-gradient(180deg, #2563eb 0%, #1d4ed8 100%);
+    color: #f8fafc;
+}
+
+button.control {
+    background: linear-gradient(180deg, #f97316 0%, #ea580c 100%);
+    color: #fff;
+}
+
+button.equal {
+    grid-column: span 1;
+    background: linear-gradient(180deg, #16a34a 0%, #22c55e 100%);
+    color: #fff;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 16px 26px rgba(15, 23, 42, 0.24);
+}
+
+button:active {
+    transform: translateY(0);
+    box-shadow: 0 8px 18px rgba(15, 23, 42, 0.18);
+}
+
+@media (max-width: 380px) {
+    .calculator {
+        padding: 20px;
+    }
+
+    .calculator-header h1 {
+        font-size: 1.35rem;
+    }
+
+    #display {
+        height: 54px;
+        font-size: 1.4rem;
+    }
+
+    button {
+        min-height: 50px;
+        font-size: 1rem;
+    }
+}
